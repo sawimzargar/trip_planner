@@ -1,0 +1,64 @@
+# Trip Configuration Example
+# Copy this file to trip_config.yaml and fill in your details.
+# trip_config.yaml should be added to .gitignore if it contains sensitive planning notes,
+# otherwise, you can commit your specific trip_config.yaml directly.
+
+trip_name: "Zion/Grand Canyon Adventure - Summer 2025"
+
+# Details for each traveler
+travelers:
+  - name: "Sawim" # Replace with actual name
+    origin_city: "San Francisco"
+    # Airport codes for origin (can be multiple, script can iterate or prioritize)
+    origin_airport_options: ["SFO", "OAK"]
+  - name: "Dom" # Replace with actual name
+    origin_city: "New York"
+    origin_airport_options: ["JFK", "LGA", "EWR"]
+
+# National Parks or main points of interest
+destination_parks:
+  - name: "Grand Canyon National Park"
+    # Optional: specific city/area for hotel search near this park.
+    # If omitted, script will primarily use airport hotels or may try to find a common gateway town.
+    # hotel_search_area: "Tusayan, AZ"
+  - name: "Zion National Park"
+    # Optional: specific city/area for hotel search near this park.
+    # hotel_search_area: "Springdale, UT"
+
+# Preferred arrival airports for the destination
+destination_airport_options: ["LAS", "PHX"]
+
+# Hotel preferences
+preferred_hotel_brands: ["Hyatt"]
+# Fallback if preferred brand not found (e.g., "Any", or a list of other brands)
+fallback_hotel_options: "Any"
+
+# Define weekends by a Saturday within that weekend.
+# The script will calculate Fri/Thu/Mon based on this.
+# Format: YYYY-MM-DD
+weekend_dates:
+  - "2025-06-07"
+  - "2025-06-14"
+  - "2025-06-28"
+  - "2025-07-05"
+  - "2025-07-19"
+  - "2025-08-02"
+
+# Trip length variations based on days off work
+# none = Fri-Sun (typical weekend)
+# friday_off = Thu-Sun
+# monday_off = Fri-Mon
+trip_length_options:
+  - "none"
+  - "friday_off"
+  - "monday_off"
+
+# Google Sheet details
+output_sheet_name: "Zion/Grand Canyon Trip Planning" # This will be the title of the Google Sheet
+# folder_id is handled in main.py for now, but could be moved here.
+
+# Budget placeholders (optional, for future use if we implement budget checks)
+# budget:
+#   max_flight_cost_per_person: 500
+#   max_hotel_cost_per_night: 300
+#   max_car_rental_cost_per_day: 70
